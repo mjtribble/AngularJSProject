@@ -28,21 +28,16 @@ namespace _491Project.Controllers.API
             {
                 "Hi", "Hello.", "Hi", "Hello", "How", "are", "you?"
             };
-            return Ok();
+            return Ok(list);
         }
 
         [HttpPost]
-        [ResponseType(typeof(string))]
-        public async Task<IHttpActionResult> CreateItem([FromBody] string payload)
+        [ResponseType(typeof(String))]
+        public async Task<IHttpActionResult> CreateItem([FromBody] String payload)
         {//testing comment
             return CreatedAtRoute(
                 "DefaultApi",
-                new
-                {
-                    id = 1
-
-                }, 
-           $"create new item from {payload}" );
+                new { id =1 }, payload.ToUpper() ); //returns uppercase string
         }
 
         [HttpPatch]
