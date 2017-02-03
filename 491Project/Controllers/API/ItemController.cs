@@ -41,7 +41,7 @@ namespace _491Project.Controllers.API
         }
 
         [HttpPatch]
-        public async Task<IHttpActionResult> UpdateItem([FromBody]int id, string payload)
+        public async Task<IHttpActionResult> UpdateItem(int id, [FromBody]string payload )
         {
             return StatusCode(HttpStatusCode.NoContent);
         }
