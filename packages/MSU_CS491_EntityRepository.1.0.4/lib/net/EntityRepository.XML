@@ -1,0 +1,364 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EntityRepository</name>
+    </assembly>
+    <members>
+        <member name="T:DAL.EntityRepository`1">
+            <summary>
+            all entities in the database can be accessed using this repository pattern
+            </summary>
+            <typeparam name="T">the db object</typeparam>
+        </member>
+        <member name="M:DAL.EntityRepository`1.#ctor(System.Data.Entity.DbContext)">
+            <summary>
+            overloaded constructor
+            </summary>
+            <param name="entitiesContext">connection to the database</param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.GetAll">
+            <summary>
+            returns all items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.GetAllWhere(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            gets all items that match the given expression
+            </summary>
+            <param name="predicate">what to filter the items by</param>
+            <returns>a list of items</returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.GetAllWhere(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            gets all items that match the given expression
+            </summary>
+            <param name="predicate">what to filter the items by</param>
+            <param name="includeProperties">a list of child properties on the object to expand</param>
+            <returns>a list of items</returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.GetPropertyWhere``1(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            gets all values for a single property for items that match the given expression
+            </summary>
+            <param name="predicate">what to filter the items by</param>
+            <param name="selectProperty">a list of child properties on the object to expand</param>
+            <returns>a list of items</returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.FindBy(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            gets all items that match the given expression
+            </summary>
+            <param name="predicate">what to filter the items by</param>
+            <returns>a queryable list of items</returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.AllIncluding(System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            get all objects and include the given child objects
+            </summary>
+            <param name="includeProperties">the properties to expand</param>
+            <returns>all objects</returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.GetSingleOrDefaultWhere(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            get a single element given a limiting expression
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            count all items matching the given limiting expression
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.Count">
+            <summary>
+            count all items in a set
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.CountDistinct``1(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Func{`0,``0})">
+            <summary>
+            count distinct items matching the given limiting expression
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.Paginate``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            get a paginated list of items
+            </summary>
+            <typeparam name="TKey">data type of the primary key</typeparam>
+            <param name="pageIndex">the page number to start on</param>
+            <param name="pageSize">the number of items per page</param>
+            <param name="keySelector">what to sort the items by</param>
+            <returns>a paginated list of results</returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.Paginate``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Boolean,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            get a paginated list of items
+            </summary>
+            <typeparam name="TKey">data type of the primary key</typeparam>
+            <param name="pageIndex">the page number to start on</param>
+            <param name="pageSize">the number of items per page</param>
+            <param name="keySelector">what to sort the items by</param>
+            <param name="predicate">limit the results to the given expression</param>
+            <param name="reverse">set to true to get the lits of results in the opposite order</param>
+            <param name="includeProperties">expand the given properties</param>
+            <returns>a paginated list of results</returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.Add(`0)">
+            <summary>
+            add an item to the database
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.Add(System.Collections.Generic.ICollection{`0})">
+            <summary>
+            add an item to the database
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.Edit(`0)">
+            <summary>
+            mark an item in the database as having been modified
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.SubObjectEdit(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            mark an item in the database as having been modified
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.Detach(`0)">
+            <summary>
+            remove the association with the database so that another process can update the record safely
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.IsAttached(`0)">
+            <summary>
+            remove the association with the database so that another process can update the record safely
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.Delete(`0)">
+            <summary>
+            remove an item from the database
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.DeleteAllWhere(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            removes all matching items from the database
+            </summary>
+            <param name="predicate"></param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.DeleteAll(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            removes all matching items from the database
+            </summary>
+            <param name="purge">data to remove</param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.CountProperty``1(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.ICollection{``0}}})">
+            <summary>
+            count the number of subobjects associated with the primary object
+            </summary>
+            <typeparam name="J"></typeparam>
+            <param name="entity"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.CascadeDelete``1(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.ICollection{``0}}}[])">
+            <summary>
+            delete all specified child records before deleting the parent
+            </summary>
+            <typeparam name="J"></typeparam>
+            <param name="entity">the primary object to delete</param>
+            <param name="properties">properties that need to be expanded and deleted</param>
+        </member>
+        <member name="M:DAL.EntityRepository`1.Save">
+            <summary>
+            commit all changes in the database
+            </summary>
+            <returns>the number of items updated</returns>
+        </member>
+        <member name="M:DAL.EntityRepository`1.WhereAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}}[])">
+            <summary>
+            converts a set of boolean expressions into a boolean function that can be passed along with a query
+            </summary>
+            <param name="where">a set of expressions to be AND'd together</param>
+            <returns></returns>
+        </member>
+        <member name="T:DAL.EntityRepositoryExtensions">
+            <summary>
+            extensions for the entity repository
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:DAL.EntityRepositoryExtensions.AndAlso``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})" -->
+        <member name="T:DAL.Models.DB.EntityExtensions">
+            <summary>
+            IEntity extension methods
+            </summary>
+        </member>
+        <member name="M:DAL.Models.DB.EntityExtensions.ToDTO``2(``0)">
+            <summary>
+            Convert a Database (IEntity) object into a DTO (IResponse) object
+            </summary>
+            <typeparam name="DB">database type</typeparam>
+            <typeparam name="R">response type</typeparam>
+            <param name="existing">database object</param>
+            <returns>populated response object</returns>
+        </member>
+        <member name="T:DAL.Models.DB.IEntity">
+            <summary>
+            all database objects must implement this interface
+            </summary>
+        </member>
+        <member name="T:DAL.Models.DTO.IPatchRequest`1">
+            <summary>
+            interface for PATCH requests
+            </summary>
+            <typeparam name="T">database type being patched</typeparam>
+        </member>
+        <member name="M:DAL.Models.DTO.IPatchRequest`1.ToDB(`0)">
+            <summary>
+            convert request to db
+            </summary>
+            <param name="existing">existing values will be kept if request values are null</param>
+            <returns>updated DB object</returns>
+        </member>
+        <member name="T:DAL.Models.DTO.IRequest`1">
+            <summary>
+            implemented by all POST requests
+            </summary>
+            <typeparam name="T">database type being created</typeparam>
+        </member>
+        <member name="M:DAL.Models.DTO.IRequest`1.ToDB">
+            <summary>
+            convert the request to a DB type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DAL.Models.DTO.IResponse">
+            <summary>
+            generic response type
+            </summary>
+        </member>
+        <member name="T:DAL.Models.DTO.IResponse`1">
+            <summary>
+            strongly typed response
+            </summary>
+            <typeparam name="T">database type being represented</typeparam>
+        </member>
+        <member name="P:DAL.Models.DTO.PaginatedDTO`1.PageIndex">
+            <summary>
+            current page number
+            </summary>
+        </member>
+        <member name="P:DAL.Models.DTO.PaginatedDTO`1.PageSize">
+            <summary>
+            number of records on the page
+            </summary>
+        </member>
+        <member name="P:DAL.Models.DTO.PaginatedDTO`1.TotalCount">
+            <summary>
+            total number of records across all pages
+            </summary>
+        </member>
+        <member name="P:DAL.Models.DTO.PaginatedDTO`1.TotalPageCount">
+            <summary>
+            total number of pages
+            </summary>
+        </member>
+        <member name="P:DAL.Models.DTO.PaginatedDTO`1.HasNextPage">
+            <summary>
+            true if more pages are available
+            </summary>
+        </member>
+        <member name="P:DAL.Models.DTO.PaginatedDTO`1.HasPrevPage">
+            <summary>
+            true if a previous page is available
+            </summary>
+        </member>
+        <member name="P:DAL.Models.DTO.PaginatedDTO`1.Items">
+            <summary>
+            list of objects
+            </summary>
+        </member>
+        <member name="T:DAL.Models.PaginatedList`1">
+            <summary>
+            a paginated list of items
+            </summary>
+            <typeparam name="T">the type of item being stored</typeparam>
+        </member>
+        <member name="P:DAL.Models.PaginatedList`1.PageIndex">
+            <summary>
+            the current page number
+            </summary>
+        </member>
+        <member name="P:DAL.Models.PaginatedList`1.PageSize">
+            <summary>
+            the number of items on each page
+            </summary>
+        </member>
+        <member name="P:DAL.Models.PaginatedList`1.TotalCount">
+            <summary>
+            the total number of items
+            </summary>
+        </member>
+        <member name="P:DAL.Models.PaginatedList`1.TotalPageCount">
+            <summary>
+            the total number of pages
+            </summary>
+        </member>
+        <member name="M:DAL.Models.PaginatedList`1.#ctor(System.Int32,System.Int32,System.Int32,System.Linq.IQueryable{`0})">
+            <summary>
+            overloaded constructor
+            </summary>
+            <param name="pageIndex">current page</param>
+            <param name="pageSize">page size</param>
+            <param name="totalCount">total number of items</param>
+            <param name="source">data to populate the list with</param>
+        </member>
+        <member name="M:DAL.Models.PaginatedList`1.#ctor">
+            <summary>
+            disable the default constructor
+            </summary>
+        </member>
+        <member name="P:DAL.Models.PaginatedList`1.HasPreviousPage">
+            <summary>
+            true if the page is greater than 1
+            </summary>
+        </member>
+        <member name="P:DAL.Models.PaginatedList`1.HasNextPage">
+            <summary>
+            true if the current page is less than the total number of pages
+            </summary>
+        </member>
+        <member name="M:DAL.Models.PaginatedList`1.Empty">
+            <summary>
+            create an empty list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DAL.Models.IQueryableExtensions">
+            <summary>
+            queryable extensions
+            </summary>
+        </member>
+        <member name="M:DAL.Models.IQueryableExtensions.ToPaginatedList``1(System.Linq.IQueryable{``0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            convert a queryable object from the DB into a paginated result
+            </summary>
+            <typeparam name="T">the type of object to interact on</typeparam>
+            <param name="query">a queryable object of type T</param>
+            <param name="pageIndex">the page to start on</param>
+            <param name="pageSize">the number of results to get</param>
+            <returns>a paginated list of type T</returns>
+        </member>
+    </members>
+</doc>
