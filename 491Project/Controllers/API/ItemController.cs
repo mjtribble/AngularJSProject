@@ -129,10 +129,5 @@ namespace _491Project.Controllers.API
             }
             return StatusCode(HttpStatusCode.NoContent);
         }
-
-        public  Task<List<Item>> itemsByLocation(int locID)
-        {
-            return itemDB.GetAllWhere(o => o.LocationID == locID);
-        }
     }
 }
