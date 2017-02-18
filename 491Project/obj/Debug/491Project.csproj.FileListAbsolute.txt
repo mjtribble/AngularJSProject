@@ -54,3 +54,5 @@ C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\obj\
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\EntityRepository.dll
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\EntityRepository.pdb
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\EntityRepository.xml
+C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\Swashbuckle.Core.dll
+C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\WebActivatorEx.dll

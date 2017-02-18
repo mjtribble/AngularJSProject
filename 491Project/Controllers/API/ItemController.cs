@@ -50,7 +50,7 @@ namespace _491Project.Controllers.API
             PaginatedList<Item> existing = await itemDB.Paginate(
                 page, //offest by (page-1)
                 take, //number of results
-                o => o.ID // order by ID
+                o => o.LocationID // order by ID
                 );
             //Convert to DTO before returning
             return Ok(existing.ToPaginatedDto<ItemResponse, Item>());
@@ -79,7 +79,7 @@ namespace _491Project.Controllers.API
         }
 
         [HttpPost]
-        [ResponseType(typeof(ItemRequest))]
+        [ResponseType(typeof(Item))]
         public async Task<IHttpActionResult> CreateItem(ItemRequest request)
         {
             //convert from DTO
@@ -95,7 +95,7 @@ namespace _491Project.Controllers.API
                         ID = dbObject.ID
 
                     },
-                    request);
+                    dbObject);
         }
 
         [HttpPatch]
@@ -127,6 +127,8 @@ namespace _491Project.Controllers.API
             {
                 return NotFound();
             }
+            itemDB.Delete(dbObject);
+            await itemDB.Save();
             return StatusCode(HttpStatusCode.NoContent);
         }
     }

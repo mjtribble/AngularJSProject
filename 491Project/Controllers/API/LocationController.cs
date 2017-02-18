@@ -67,7 +67,7 @@ namespace _491Project.Controllers.API
         }
 
         [HttpPost]
-        [ResponseType(typeof(LocationRequest))]
+        [ResponseType(typeof(Location))]
         public async Task<IHttpActionResult> CreateLocation(LocationRequest request)
         {
             //convert from DTO
@@ -83,7 +83,7 @@ namespace _491Project.Controllers.API
                         ID = dbObject.ID
                     },
                     
-                    request);
+                    dbObject);
         }
 
         [HttpPatch]
@@ -123,6 +123,12 @@ namespace _491Project.Controllers.API
                 {
                     Item.LocationID = null; 
                 }
+                await itemDB.Save();
+
+                locationDB.Delete(dbObject);
+                await locationDB.Save();
+
+
                 return StatusCode(HttpStatusCode.NoContent);
             }
         }
