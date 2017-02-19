@@ -27,7 +27,7 @@ namespace _491Project.Models.DTO.ItemDTO
                 ID = this.ID,
                 Name = this.Name,
                 Description = this.Description,
-                Quantity = this.Quantity,
+                Quantity = this.Quantity ?? 0,
                 Expires = this.Expires,
                 Created = DateTime.Now,
                 Updated = DateTime.Now,
