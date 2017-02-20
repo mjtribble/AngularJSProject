@@ -45,12 +45,12 @@ namespace _491Project.Controllers.API
         [HttpGet]
         [ResponseType(typeof(List<IResponse>))]
         [Route("api/location/{id}/item")]
-        public async Task<IHttpActionResult> GetItemsByLocation(int locationID, int page = 1, int take = 100)
+        public async Task<IHttpActionResult> GetItemsByLocation(int id, int page = 1, int take = 100)
         {
             PaginatedList<Item> existing = await itemDB.Paginate(
                 page, //offest by (page-1)
                 take, //number of results
-                o => o.LocationID // order by ID
+                o => o.LocationID == id // order by ID
                 );
             //Convert to DTO before returning
             return Ok(existing.ToPaginatedDto<ItemResponse, Item>());
