@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Zombie Broccoli";
+    Layout = "~/Areas/App/Views/_LayoutMain.cshtml";
+}
+
+@section styles
+{
+    @Styles.Render("~/Content/bootstrap.css")    
+}
+
+<!doctype html>
+<html ng-app="myApp">
+    <head>
+        <meta name="viewport"content="width=device-width, initial-scale=1" />
+        <title>Title</title>
+        <script src="~/Scripts/angular.min.js"></script>
+        <script src="~/Scripts/app/app.js"></script>
+    </head>
+
+    <body ng-controller="listController" >
+        <div class="container">
+            <header>
+                <h1>Zombie Broccoli</h1>
+            </header>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <nav>
+                        <h2>Filters</h2>
+                        <ul ng-repeat="location in locations">
+                            <li>{{location.label}}</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <article>
+                    <h2>Food List</h2>
+                    <div>
+                        <label for="filter" class="control-label">Filter Results</label>
+                        <input class="form-control"
+                               ng-model="filter.One" type="text"
+                               placeholder="Filter..." />
+                        <label for="filter"
+                               class="control-label">Filter Results 2</label>
+                        <input class="form-control"
+                               ng-model="filter.Two" type="text"
+                               placeholder="Filter..." />
+                        <input type="button" ng-click="cancelAlert()" value="Cancel 10 Second Alert"/>
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Expires</th>
+                                <th>Locations</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="item in items">
+                            <tr>
+                                <td>{{item.name}}</td>
+                                <td>{{item.quantity}}</td>
+                                <td>{{item.expires}}</td>
+                                <td>{{item.location}}</td>
+                                <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table> 
+                </article>
+            </div>
+            
+
+        <footer>
+            <p>Melody Tribble 2017</p>
+        </footer>
+    </div>
+
+        @section scripts{
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap") 
+            @Scripts.Render("~/bundles/angular")   
+        }
+
+    </body ng-controller="listController">
+
+</html>
+
+

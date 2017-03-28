@@ -51,7 +51,7 @@ namespace _491Project.Controllers.API
                 page, //offest by (page-1)
                 take, //number of results
                 o => o.ID, // order by ID
-                o => o.LocationID == id
+                o => o.LocationID == id //
                 );
             //Convert to DTO before returning
             return Ok(existing.ToPaginatedDto<ItemResponse, Item>());
