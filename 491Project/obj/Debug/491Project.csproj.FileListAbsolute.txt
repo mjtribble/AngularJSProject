@@ -50,7 +50,6 @@ C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\obj\
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\obj\Debug\_491Project.Migrations.Location.resources
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\obj\Debug\491Project.csproj.GenerateResource.Cache
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\obj\Debug\_491Project.Migrations.Item.resources
-C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\obj\Debug\491Project.csprojResolveAssemblyReference.cache
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\EntityRepository.dll
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\EntityRepository.pdb
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\EntityRepository.xml
@@ -92,3 +91,4 @@ C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\roslyn\System.Xml.XPath.XDocument.dll
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\roslyn\vbc.exe.config
 C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\bin\roslyn\vbc.rsp
+C:\Users\Melody\documents\visual studio 2015\Projects\491Project\491Project\obj\Debug\491Project.csprojResolveAssemblyReference.cache

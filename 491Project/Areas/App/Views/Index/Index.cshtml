@@ -23,7 +23,16 @@
             <header>
                 <h1>Zombie Broccoli</h1>
             </header>
-
+            <div>
+                <h2>Logs</h2>
+                <p ng-repeat="note in notes">
+                    <code>{{note}}</code>
+                </p>
+            </div>
+            <div>
+                <h2>Response</h2>
+                <pre>{{item | json}}</pre>
+            </div>
             <div class="row">
                 <div class="col-md-4">
                     <nav>
