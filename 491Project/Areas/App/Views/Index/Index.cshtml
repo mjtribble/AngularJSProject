@@ -16,35 +16,32 @@
         <title>Title</title>
         <script src="~/Scripts/angular.min.js"></script>
         <script src="~/Scripts/app/app.js"></script>
+        @*<script src="http://msucs491-spring17-8d42d07c-01e3-4d92-a661-46d9fa7700bb.azurewebsites.net/api/item/:itemId"></script>*@
     </head>
 
     <body ng-controller="listController" >
-        <div class="container">
-            <header>
-                <h1>Zombie Broccoli</h1>
-            </header>
+        <header class="container-fluid">
+            <h1>Grocery Inventory</h1>
+        </header class="container-fluid">
+        <div class="container-fluid">
             <div>
                 <h2>Logs</h2>
                 <p ng-repeat="note in notes">
                     <code>{{note}}</code>
                 </p>
             </div>
+            
             <div>
                 <h2>Response</h2>
-                <pre>{{item | json}}</pre>
+                <pre>{{one_item | json}}</pre>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <nav>
-                        <h2>Filters</h2>
-                        <ul ng-repeat="location in locations">
-                            <li>{{location.label}}</li>
-                        </ul>
-                    </nav>
-                </div>
+            <div>
+                <h2>Locations</h2>
+                <p ng-repeat="location in locations">
+                    <code>{{location}}</code>
+                </p>
             </div>
-
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <article>
                     <h2>Food List</h2>
                     <div>
@@ -52,12 +49,11 @@
                         <input class="form-control"
                                ng-model="filter.One" type="text"
                                placeholder="Filter..." />
-                        <label for="filter"
-                               class="control-label">Filter Results 2</label>
+                        <label for="filter" class="control-label">Filter Results 2</label>
                         <input class="form-control"
                                ng-model="filter.Two" type="text"
                                placeholder="Filter..." />
-                        <input type="button" ng-click="cancelAlert()" value="Cancel 10 Second Alert"/>
+                        <input type="button" ng-click="cancelAlert()" value="Cancel 10 Second Alert" />
                     </div>
                     <table class="table table-hover">
                         <thead>
@@ -78,15 +74,15 @@
                                 <td><a href="#">Edit</a> <a href="#">Delete</a></td>
                             </tr>
                         </tbody>
-                    </table> 
+                    </table>
                 </article>
             </div>
-            
 
-        <footer>
-            <p>Melody Tribble 2017</p>
-        </footer>
-    </div>
+
+            <footer class="container-fluid">
+                <p>Melody Tribble 2017</p>
+            </footer>
+        </div>
 
         @section scripts{
             @Scripts.Render("~/bundles/jquery")
