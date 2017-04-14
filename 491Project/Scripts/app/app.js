@@ -1,6 +1,6 @@
-﻿angular.module('myApp', ['ngResource'])
-    .controller('listController', ['$scope', '$http', '$resource',
-        function ($scope, $http, $resource) {
+﻿var myApp = angular.module('myApp', ['ngResource'])
+    .controller('listController', ['$scope', '$resource',
+        function ($scope, $resource) {
             $scope.notes = [];
             $scope.results = [];
             $scope.one_item = null;
@@ -31,16 +31,20 @@
                     'remove': {method: 'DELETE'},
                 });
 
-            //$scope.results = ItemService.query();
-            //console.log($scope.results);
+            $scope.results = ItemService.query();
+            console.log($scope.results);
 
             $scope.notes.push("Fetching 24");
 
-            $scope.one_item = ItemService.get({itemId:24},
+            $scope.one_item = ItemService.get({itemId:26},
                 function() {
                     $scope.notes.push("Updating 24");
                     $scope.one_item.Quantity = $scope.one_item.Quantity + 1;//increment by 1
-                    $scope.notes.push("Saving Item ID 24");
+                    $scope.notes.push("Saving Item number 24");
                     $scope.one_item.$save(); //Save
                 });
         }]);
+
+var InventoryCtrl = function ($scope, $location) {
+    $scope.test = "testing";
+};

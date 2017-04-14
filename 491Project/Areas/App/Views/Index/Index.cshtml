@@ -15,8 +15,8 @@
         <meta name="viewport"content="width=device-width, initial-scale=1" />
         <title>Title</title>
         <script src="~/Scripts/angular.min.js"></script>
-        <script src="~/Scripts/app/app.js"></script>
-        @*<script src="http://msucs491-spring17-8d42d07c-01e3-4d92-a661-46d9fa7700bb.azurewebsites.net/api/item/:itemId"></script>*@
+        <script src="~/Scripts/app"></script>
+        <script src="http://msucs491-spring17-assignment2.azurewebsites.net/api/item/:itemId"></script>
     </head>
 
     <body ng-controller="listController" >
@@ -59,16 +59,20 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Description</th>
                                 <th>Quantity</th>
                                 <th>Expires</th>
+                                <th>Time until Expires</th>
                                 <th>Locations</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody ng-repeat="item in items">
+                        <tbody >
                             <tr>
                                 <td>{{item.name}}</td>
+                                <td>{{item.description}}</td>
                                 <td>{{item.quantity}}</td>
+                                <td>{{item.expires}}</td>
                                 <td>{{item.expires}}</td>
                                 <td>{{item.location}}</td>
                                 <td><a href="#">Edit</a> <a href="#">Delete</a></td>
@@ -88,6 +92,9 @@
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/bootstrap") 
             @Scripts.Render("~/bundles/angular")   
+            @Scripts.Render("~/bundles/app")
+
+
         }
 
     </body ng-controller="listController">
