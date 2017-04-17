@@ -33,8 +33,8 @@ namespace _491Project
                        ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.min.css",
-                      "~/Content/font-awesome.min.css",
+                      "~/Content/bootstrap.css",
+                      "~/Content/font-awesome.css",
                       "~/Content/site.css"));
         }
     }

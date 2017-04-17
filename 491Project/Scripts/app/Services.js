@@ -7,7 +7,7 @@
                     { itemId: '@ID' },
                     {
                         'get': { method: 'GET' },
-                        'query': { method: 'GET', isArray: false },
+                        'query': { method: 'GET', isArray: false,  },
                         'save': { method: 'PATCH' },
                         'remove': { method: 'DELETE' },
                     }
