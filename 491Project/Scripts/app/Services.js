@@ -14,15 +14,6 @@
                 );
             }
         ])
-        .factory("myApp.Services.AddItemService", ["$resource",
-            function ($resource) {
-                return $resource("/api/item/",
-                    {
-                        'add': { method: 'POST' }
-                    }
-                );
-            }
-        ])
         .factory("myApp.Services.LocationService", ["$resource",
             function ($resource) {
                 return $resource("/api/location/:locationId",

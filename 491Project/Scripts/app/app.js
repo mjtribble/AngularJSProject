@@ -10,7 +10,11 @@
             $scope.items = [];
             $scope.delete;
 
-
+            $scope.newItem = ItemService.save({itemId: 1},
+                function () {
+                    $scope.newItem.Name = "cheese";
+                });
+           
             $scope.items = ItemService.query( );
             //console.log($scope.items);
 
@@ -20,13 +24,10 @@
                     //$scope.item.Quantity = $scope.item.Quantity - 5;//increment by 1
                     $scope.item.$save(); //Save
                 });
-            $scope.delete = function() {
-                var id = this.item.ID;//this doesn't seem to be working
-                ItemService.remove({ itemID: id }, function () {
+            $scope.delete = ItemService.remove({ itemID: this.item.ID },
+                function () {
                     $("#item_" + id).fadeOut();//jquery
                 });
-            };
-            
         }]);
 
 
