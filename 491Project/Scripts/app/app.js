@@ -8,12 +8,20 @@
             $scope.results = [];
             $scope.item = null;
             $scope.items = [];
-            $scope.delete;
+            $scope.itemName = "";
+            $scope.itemDescription = "";
+            $scope.itemQuantity = "";
+            $scope.itemExpiration = "";
+            $scope.itemLocation = "";
 
-            $scope.newItem = ItemService.save({itemId: 1},
-                function () {
-                    $scope.newItem.Name = "cheese";
-                });
+            $scope.createNewItem = function () {
+                var newItem = new ItemService();
+                newItem.Name = $scope.itemName;
+                newItem.Description = $scope.itemDescription;
+                newItem.Quantity = $scope.itemQuantity;
+                newItem.Expires = $scope.itemExpires;
+                newItem.$add();
+            };
            
             $scope.items = ItemService.query( );
             //console.log($scope.items);
@@ -24,10 +32,13 @@
                     //$scope.item.Quantity = $scope.item.Quantity - 5;//increment by 1
                     $scope.item.$save(); //Save
                 });
-            $scope.delete = ItemService.remove({ itemID: this.item.ID },
-                function () {
-                    $("#item_" + id).fadeOut();//jquery
-                });
+
+            $scope.delete = function () {
+                var id = this.item.ID;
+                ItemService.$remove({ itemId: id }),
+                $("#item_" + id).fadeOut();//jquery
+            };
+        
         }]);
 
 

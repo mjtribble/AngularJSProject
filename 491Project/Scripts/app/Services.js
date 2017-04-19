@@ -6,6 +6,7 @@
                 return $resource("/api/item/:itemId",
                     { itemId: '@ID' },
                     {
+                        'add':{method: 'POST'},
                         'get': { method: 'GET' },
                         'query': { method: 'GET', isArray: false,  },
                         'save': { method: 'PATCH' },
