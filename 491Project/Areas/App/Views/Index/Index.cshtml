@@ -1,5 +1,5 @@
 ﻿<!doctype html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>I'm Hungry</title>
@@ -8,11 +8,11 @@
         
     </head>
 
-    <body ng-app="myApp"  >
+    <body ng-controller="listController" >
         <header class="container-fluid">
             <h1>Grocery Inventory</h1>
         </header class="container-fluid">
-        <div class="container-fluid" ng-controller="listController">
+        <div class="container-fluid" >
             <div class="alert alert-info">
                 <p>Sort Type: {{ sortType }}</p>
                 <p>Sort Reverse: {{ sortReverse }}</p>
