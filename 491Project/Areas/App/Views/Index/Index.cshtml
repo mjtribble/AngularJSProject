@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <html lang="en" ng-app="myApp">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <title>I'm Hungry</title>
         @Styles.Render("~/Content/css")
 
@@ -12,7 +12,7 @@
         <header class="container-fluid">
             <h1>Grocery Inventory</h1>
         </header>
-        <div class="container-fluid" >
+        <div class="col-sm-6 col-xs-6" >
             <div class="alert alert-info">
                 <p>Sort Type: {{ sortType }}</p>
                 <p>Sort Reverse: {{ sortReverse }}</p>
