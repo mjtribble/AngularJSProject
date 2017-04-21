@@ -177,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\TextFile1.txt" />
+    <Content Include="App_Data\TextFile2.txt" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />

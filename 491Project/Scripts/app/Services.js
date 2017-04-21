@@ -6,9 +6,9 @@
                 return $resource("/api/item/:itemId",
                     { itemId: '@ID' },
                     {
-                        'add':{method: 'POST'},
+                        'add': { method: 'POST' },
                         'get': { method: 'GET' },
-                        'query': { method: 'GET', isArray: false,  },
+                        'query': { method: 'GET', isArray: false, },
                         'save': { method: 'PATCH' },
                         'remove': { method: 'DELETE' },
                     }
@@ -20,7 +20,7 @@
                 return $resource("/api/location/:locationId",
                     { locationId: '@ID' },
                     {
-                        'add':{method : 'POST'},
+                        'add': { method: 'POST' },
                         'get': { method: 'GET' },
                         'query': { method: 'GET', isArray: false },
                         'save': { method: 'PATCH' },
@@ -29,5 +29,4 @@
                 );
             }
         ])
-        
 })();

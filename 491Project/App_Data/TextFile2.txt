@@ -32,7 +32,7 @@
                         <div class="modal-dialog">
 
                             <!-- Modal content-->
-                            <div class="modal-content">
+                            <div class="modal-content" id="itemModal">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title">Item Details</h4>
@@ -109,7 +109,7 @@
                         <div class="modal-dialog">
 
                             <!-- Modal content-->
-                            <div class="modal-content">
+                            <div class="modal-content" id="locationModal">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title">Location Details</h4>
@@ -203,9 +203,6 @@
                                         <span ng-show="sortType== 'LocationID' && sortReverse" class="fa fa-caret-up"></span>
                                     </a>
                                 </th>
-                                <th>
-                                    Edit
-                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -215,11 +212,10 @@
                                 <td>{{item.Quantity}}</td>
                                 <td>{{item.Expires}}</td>
                                 <td>{{item.Expires}}</td>
-                                <td>{{locationsByID[item.LocationID].Name}}</td>
-                                @*<td>{{item.LocationID}}</td>@*how do I make this call for the location description instead of the ID?*@
+                                <td>{{location(item.LocationID)}}</td>@*how do I make this call for the location description instead of the ID?*@
                                 <td>
                                     <span ng-click="editItem(item)" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-edit" id="edit-item"></i></span>
-                                    <span ng-click="deleteItem(item)"><i class="glyphicon glyphicon-remove"></i></span> 
+                                    <span ng-click="deleteItem(item)"><i class="glyphicon glyphicon-remove"></i></span> @*This is not working*@
                                 </td>
                             </tr>
                         </tbody>
@@ -234,13 +230,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <tr ng-repeat="location in locations.Items">
+                        <tr ng-repeat="location in locations.Location">@*This is not grabbing locations*@
                             <td>{{location.Name}}</td>
                             <td>{{location.Description}}</td>
                         </tr>
                 </tbody>
             </table>
-            <a ng-click="show_more()">Show more</a> 
+            <a ng-click="show_more()">Show more</a> @*Not sure how to implement this*@
 
 
                             <footer class="container-fluid">
