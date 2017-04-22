@@ -43,7 +43,7 @@
                 newItem.Description = $scope.itemDescription;
                 newItem.Quantity = $scope.itemQuantity;
                 newItem.Expires = $scope.itemExpires;
-                //newItem.LocationID = 1;
+                newItem.LocationID = $scope.itemLocation;
 
                 var test = newItem.$add();
                 test.then(function (a){
@@ -51,23 +51,42 @@
                 });
             };
 
-            $scope.addLocation = function ()
-            {
-                LocationService.add($scope.location)
-            }
+            $scope.addLocation = function () {
+                var newLoc = new LocationService();
+                newLoc.Name = $scope.locationName;
+                newLoc.Description = $scope.locationDescription;
+                newLoc.ID = $scope.locationID;
+
+                var add = newLoc.$add()
+                add.then(function (resp) {
+                    $scope.locations.Items.push(resp);
+                });
+            };
             
-            $scope.editItem = function (itm) {//is this how I send in this item?
+            $scope.editItem = function (itm) {
                 $('.itemName', myModal).val(item.Name);
                 $('.itemDescription', myModal).val(item.Desription);
                 $('.itemQuantity', myModal).val(item.Quantity);
                 $('.itemExpiration', myModal).val(item.Expires);
-                $('.itemLocation', myModal).val($scope.location(item.LocationID));//not sure how to edit the location by Name
+                $('.itemLocation', myModal).val($scope.location(item.LocationID));
                 $scope.itm.$save();
+            };
+
+            $scope.editLocation = function (loc) {
+                $('.locationName', anotherModal).val(location.Name);
+                $('.locationDescription', anotherModal).val(location.Desription);
+                $scope.loc.$save();
             };
 
             $scope.deleteItem = function (item) {
                 var id = item.ID;
                 ItemService.remove({ itemId: id }),
                 $("#item_" + id).fadeOut();//jquery
-            };        
+            };
+
+            $scope.deleteLocation = function (location) {
+                var id = location.ID;
+                LocationService.remove({ locationId: id }),
+                $("#location_" + id).fadeOut();//jquery
+            };
         }]);

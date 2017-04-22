@@ -3,12 +3,10 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <title>I'm Hungry</title>
-        @Styles.Render("~/Content/css")
-
-        
+        @Styles.Render("~/Content/css")  
     </head>
 
-    <body ng-controller="listController" >
+    <body ng-controller="listController">
         <header class="container-fluid">
             <h1>Grocery Inventory</h1>
         </header>
@@ -101,7 +99,6 @@
 
 
                     <!-- Trigger the location modal with a button -->
-                    <button type="button" class="btn btn-info btn-lg" id="locationAddButton" data-toggle="modal" data-target="#anotherModal">Add Location</button>
 
                     <!-- Location Modal -->
                     <div id="anotherModal" class="modal fade" role="dialog">
@@ -135,6 +132,16 @@
                                                        ng-model="locationDescription">
                                             </div>
                                         </div>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <label for="location_id">LocationID:</label>
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           id="location_id"
+                                                           placeholder="Enter location id"
+                                                           ng-model="locationID">
+                                                </div>
+                                            </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
@@ -152,7 +159,7 @@
                                 <div class="input-group-addon"><i class="fa fa-search"></i></div>
                                 <input type="text"
                                        class="form-control"
-                                       placeholder="Search da Fridge"
+                                       placeholder="Search da Food"
                                        ng-model="searchFridge">
                             </div>
                         </div>
@@ -215,7 +222,6 @@
                                 <td>{{item.Expires}}</td>
                                 <td>{{item.Expires}}</td>
                                 <td>{{locationsByID[item.LocationID].Name}}</td>
-                                @*<td>{{item.LocationID}}</td>@*how do I make this call for the location description instead of the ID?*@
                                 <td>
                                     <span ng-click="editItem(item)" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-edit" id="edit-item"></i></span>
                                     <span ng-click="deleteItem(item)"><i class="glyphicon glyphicon-remove"></i></span> 
@@ -226,17 +232,25 @@
                 </article>
             </div>
             <h2>Location Information</h2>
+            <button type="button" class="btn btn-info btn-lg" id="locationAddButton" data-toggle="modal" data-target="#anotherModal">Add Location</button>
             <table class="table table-striped table-bordered table-responsive table-hover">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>ID</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
-                        <tr ng-repeat="location in locations.Items">
+                        <tr ng-repeat="location in locations.Items" id="location_{{location.ID}}">
                             <td>{{location.Name}}</td>
                             <td>{{location.Description}}</td>
+                            <td>{{location.ID}}</td>
+                            <td>
+                                <span ng-click="editLocation(location)" data-toggle="modal" data-target="#anotherModal"><i class="glyphicon glyphicon-edit" id="edit-location"></i></span>
+                                <span ng-click="deleteLocation(location)"><i class="glyphicon glyphicon-remove"></i></span>
+                            </td>
                         </tr>
                 </tbody>
             </table>
@@ -253,9 +267,6 @@
         @Scripts.Render("~/bundles/bootstrap") 
         @Scripts.Render("~/bundles/angular")   
         @Scripts.Render("~/bundles/app")
-
-
-        
 
     </body>
 
