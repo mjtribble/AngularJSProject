@@ -43,7 +43,7 @@
                 newItem.Description = $scope.itemDescription;
                 newItem.Quantity = $scope.itemQuantity;
                 newItem.Expires = $scope.itemExpires;
-                newItem.LocationID = 1;
+                //newItem.LocationID = 1;
 
                 var test = newItem.$add();
                 test.then(function (a){
