@@ -1,4 +1,4 @@
-﻿angular.module('myApp', ['myApp.Services'])
+﻿angular.module('myApp', ['myApp.Services'], ['timer'])
     .controller('listController', ['$scope', '$location', 'myApp.Services.ItemService', 'myApp.Services.LocationService',
         function ($scope, $location, ItemService, LocationService) {
             $scope.sortType = 'LocationID';
@@ -13,11 +13,6 @@
             $scope.itemQuantity = "";
             $scope.itemExpiration = "";
             $scope.itemLocation = "";
-            
-            //$('#anotherModal').modal('toggle');
-
-            //$('#myModal').modal('toggle');
-
             $scope.items =  ItemService.query();
             $scope.locationsByID = {};
 
@@ -27,7 +22,6 @@
                         $scope.locationsByID[data.Items[i].ID] = data.Items[i];
                     }
                 })
-
 
             //$scope.addItem = function ()
             //{
@@ -63,9 +57,9 @@
                 });
             };
             
-            $scope.editItem = function (itm) {
-                $('.itemName', myModal).val(item.Name);
-                $('.itemDescription', myModal).val(item.Desription);
+            $scope.editItem = function () {
+                $('.#item_name', myModal).val(item.Name);
+                $('.#item_description', myModal).val(item.Desription);
                 $('.itemQuantity', myModal).val(item.Quantity);
                 $('.itemExpiration', myModal).val(item.Expires);
                 $('.itemLocation', myModal).val($scope.location(item.LocationID));
