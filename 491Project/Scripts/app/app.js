@@ -1,4 +1,4 @@
-﻿angular.module('myApp', ['myApp.Services', 'timer'])
+﻿angular.module('myApp', ['myApp.Services'])
     .controller('listController', ['$scope', '$location', 'myApp.Services.ItemService', 'myApp.Services.LocationService',
         function ($scope, $location, ItemService, LocationService) {
             $scope.sortType = 'LocationID';
