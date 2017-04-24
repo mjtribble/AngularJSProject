@@ -9,7 +9,7 @@ namespace _491Project
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery")
-                .Include("~/Scripts/jquery-{version}.js"));
+                .Include("~/Scripts/jquery-*"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/app")
@@ -33,8 +33,8 @@ namespace _491Project
                        ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/font-awesome.css",
+                      "~/Content/bootstrap*",
+                      "~/Content/font-awesome*",
                       "~/Content/site.css"));
         }
     }

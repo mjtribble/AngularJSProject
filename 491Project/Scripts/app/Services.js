@@ -1,6 +1,6 @@
 ﻿(function () {
     angular
-        .module("myApp.Services", ["ngResource"])
+        .module('myApp.Services', ['ngResource'], ['timer'])
         .factory("myApp.Services.ItemService", ["$resource",
             function ($resource) {
                 return $resource("/api/item/:itemId",
