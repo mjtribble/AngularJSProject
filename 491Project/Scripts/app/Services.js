@@ -3,7 +3,7 @@
         .module('myApp.Services', ['ngResource'])
         .factory("myApp.Services.ItemService", ["$resource",
             function ($resource) {
-                return $resource("/api/item/:itemId",
+                return $resource("https://msucs491-spring17-assignment2.azurewebsites.net/api/item/:itemId",
                     { itemId: '@ID' },
                     {
                         'add': { method: 'POST' },
@@ -17,7 +17,7 @@
         ])
         .factory("myApp.Services.LocationService", ["$resource",
             function ($resource) {
-                return $resource("/api/location/:locationId",
+                return $resource("https://msucs491-spring17-assignment2.azurewebsites.net/api/location/:locationId",
                     { locationId: '@ID' },
                     {
                         'add': { method: 'POST' },
