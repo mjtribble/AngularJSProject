@@ -58,8 +58,8 @@
             };
             
             $scope.editItem = function () {
-                $('.#item_name', myModal).val(item.Name);
-                $('.#item_description', myModal).val(item.Desription);
+                $('.item_name', myModal).val(item.Name);
+                $('.item_description', myModal).val(item.Desription);
                 $('.itemQuantity', myModal).val(item.Quantity);
                 $('.itemExpiration', myModal).val(item.Expires);
                 $('.itemLocation', myModal).val($scope.location(item.LocationID));
